@@ -1,0 +1,34 @@
+#include <iostream>
+#include "Banking_Functions.h"
+#include <fstream>
+using namespace std;
+bankSkeleton::bankSkeleton() {
+
+}
+ifstream bankSkeleton::getFile(ifstream infile) {
+
+}
+double bankSkeleton::getAccount() {
+
+}
+double bankSkeleton::getBalances() {
+
+}
+double bankSkeleton::getBalanceC() {
+
+}
+void bankSkeleton::setAccName() {
+
+}
+void bankSkeleton::setBalanceS() {
+
+}
+void bankSkeleton::setBalanceC() {
+
+}
+void bankSkeleton::withdraw(double w) {
+
+}
+void bankSkeleton::deposit(double d) {
+
+}
