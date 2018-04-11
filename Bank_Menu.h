@@ -8,10 +8,9 @@ using namespace std;
 
 
 void splashScreen();
-voidgetAccount();
-void javaProgramming();
-void androidProgramming();
-void iosProgramming();
+void getAccount();
+void withdraw();
+void deposit();
 void mainMenu();
 int validate(string input, string checkType);
 void userInput();
