@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-void computerProgrammingInCpp()
+void getAccount()
 {
 	system("Color 2B");
 	system("CLS");
@@ -21,7 +21,7 @@ void computerProgrammingInCpp()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                Computer Programming In C++                  *" << endl;
+	cout << "*                        Get Account                          *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -36,7 +36,7 @@ void computerProgrammingInCpp()
 }
 
 
-void javaProgramming()
+void withdraw()
 {
 	system("Color 2B");
 	system("CLS");
@@ -49,7 +49,7 @@ void javaProgramming()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                      Java Programming                       *" << endl;
+	cout << "*                      Withdraw Screen                        *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -64,7 +64,7 @@ void javaProgramming()
 }
 
 
-void androidProgramming()
+void deposit()
 {
 	system("Color 2B");
 	system("CLS");
@@ -77,7 +77,7 @@ void androidProgramming()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                     Android Programming                     *" << endl;
+	cout << "*                     Deposit Screen                          *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -92,7 +92,7 @@ void androidProgramming()
 }
 
 
-void iosProgramming()
+void showDatabase()
 {
 	system("Color 2B");
 	system("CLS");
@@ -105,7 +105,7 @@ void iosProgramming()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                       IOS Programming                       *" << endl;
+	cout << "*                       Show Database                         *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -222,17 +222,17 @@ void mainMenu()
 		system("Color 1A");
 		system("CLS");
 		gotoxy(50, 9);
-		cout << " Farmingdale Computer Systems Registration Menu\n";
+		cout << " Farmingdale Computer Systems Banking System\n";
 		gotoxy(50, 10);
 		cout << " ====================================\n";
 		gotoxy(50, 11);
-		cout << " 1. Welcome to Computer Programming In C++\n";
+		cout << " 1. Find Account\n";
 		gotoxy(50, 12);
-		cout << " 2. Welcome to Java Programming\n";
+		cout << " 2. Make Withdrawal\n";
 		gotoxy(50, 13);
-		cout << " 3. Welcome to Android Programming\n";
+		cout << " 3. Make Deposit";
 		gotoxy(50, 14);
-		cout << " 4. Welcome to iOS Programming\n";
+		cout << " 4. See Accounts\n";
 		gotoxy(50, 15);
 		cout << " 5. User Input\n";
 		gotoxy(50, 16);
@@ -247,18 +247,18 @@ void mainMenu()
 		switch (selection)
 		{
 		case '1':
-			computerProgrammingInCpp();
+			getAccount();
 			break;
 
 		case '2':
-			javaProgramming();
+			withdraw();
 			break;
 		case '3':
-			androidProgramming();
+			deposit();
 			break;
 
 		case '4':
-			iosProgramming();
+			showDatabase();
 			break;
 
 		case '5':
