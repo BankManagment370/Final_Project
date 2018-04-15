@@ -8,6 +8,7 @@ using namespace std;
 
 class bankSkeleton {
 private:
+	string holderName;
 	string accName;
 	double balanceS;
 	double balanceC;
@@ -24,7 +25,8 @@ public:
 	void setBalanceC();
 	void withdraw(double w);
 	void deposit(double d);
-	Void searchRecords();
+	void searchRecords();
+	void print();
 };
 
 
