@@ -11,8 +11,8 @@ void splashScreen();
 void getAccount();
 void withdraw();
 void deposit();
-void seeDatabase();
+void showDatabase();
 void mainMenu();
-int validate(string input, string checkType);
+//int validate(string input, string checkType);
 void userInput();
 #endif
