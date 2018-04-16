@@ -116,11 +116,11 @@ void bankSkeleton::readDataFromFile()
 			gotoxy(50, 70);
 			cout << "First name: " << fName << endl;
 			gotoxy(50, 71);
-			cout << "Last name: " << fName << endl;
+			cout << "Last name: " << lName << endl;
 			gotoxy(50, 72);
-			cout << "Savings Account Bal: " << fName << endl;
+			cout << "Savings Account Bal: " << savingBal << endl;
 			gotoxy(50, 73);
-			cout << "Checking account Bal: " << fName << endl;
+			cout << "Checking account Bal: " << checkingBal << endl;
 
 		}
 	}
