@@ -8,10 +8,13 @@ bankSkeleton::bankSkeleton() {
 ifstream bankSkeleton::getFile(ifstream infile) {
 
 }
-double bankSkeleton::getAccount() {
-
+string bankSkeleton::getMemberName(){
+return memberName;  
 }
-double bankSkeleton::getBalances() {
+double bankSkeleton::getAccount() {
+return account;
+}
+double bankSkeleton::getBalanceS() {
 
 }
 double bankSkeleton::getBalanceC() {
