@@ -39,6 +39,7 @@ public:
 	void depositSavings(double d);
 	void withdrawChecking(double w);
 	void depositChecking(double d);
+	void readDataFromFile();
 };
 
 
