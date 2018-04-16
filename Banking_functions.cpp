@@ -9,7 +9,7 @@ ifstream bankSkeleton::getFile(ifstream infile) {
 
 }
 string bankSkeleton::getMemberName(){
-return memberName;  
+return accName;  
 }
 double bankSkeleton::getAccount() {
 return account;
