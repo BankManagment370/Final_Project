@@ -13,28 +13,28 @@ ifstream bankSkeleton::getFile() {
 	return myfile;
 }
 
-string bankSkeleton::getAccName() {
-	return accName;
+string bankSkeleton::getLastName() {
+	return lastName;
 }
 
-string bankSkeleton::getMemberName(){
-	return accName;  
+string bankSkeleton::getFirstName(){
+	return firstName;  
 }
 
-double bankSkeleton::getBalanceS() {
-	return balanceS;
+double bankSkeleton::getSavingsBalance() {
+	return savingsBalance;
 }
 
-double bankSkeleton::getBalanceC() {
-	return balanceC;
+double bankSkeleton::getCheckingBalance() {
+	return checkingBalance;
 }
 
-void bankSkeleton::setMemberName(string memberName){
-	memberName = memberName;
+void bankSkeleton::setFirstName(string fn){
+	firstName = fn;
 }
 
-void bankSkeleton::setAccName(string accName) {
-	accName = accName;
+void bankSkeleton::setLastName(string ln) {
+	lastName = ln;
 }
 
 void bankSkeleton::setBalanceS(double balanceS) {
@@ -45,30 +45,22 @@ void bankSkeleton::setBalanceC(double balanceC) {
 	balanceC = balanceC;
 }
 
-void bankSkeleton::withdraw(double w) {
+void bankSkeleton::withdrawSavings(double w) {
 	cout<<"Enter amount"<<endl;
 	cin>>w;
-	if(accName == "Savings" || accName == "savings")
-	{
-		balanceS = balanceS - w;
-	}
-	else if(accName == "Checking" || accName == "checking")
-	{
-		balanceC = balanceC - w;
-	}
 }
 
-void bankSkeleton::deposit(double d) {
+void bankSkeleton::depositSavings(double d) {
 	cout<<"Enter amount"<<endl;
-	cin>>d;
-	
-	if(accName == "Savings" || accName == "savings")
-	{
-		balanceS = balanceS + d;
-	}
-	
-	else if(accName == "Checking" || accName == "checking")
-	{
-		balanceC = balanceC + d;
-	}
+	cin >> d;
+}
+
+void bankSkeleton::withdrawChecking(double w) {
+	cout << "Enter amount" << endl;
+	cin >> w;
+}
+
+void bankSkeleton::withdrawSavings(double d) {
+	cout << "Enter amount" << endl;
+	cin >> d;
 }
