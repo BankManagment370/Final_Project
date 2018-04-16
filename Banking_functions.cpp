@@ -87,7 +87,7 @@ void bankSkeleton::readDataFromFile()
 		string fName, lName, savingBal, checkingBal;
 		int counter = 0;
 
-		while (counter < 5)
+		while (counter < 3)
 		{
 			string substr;
 			getline(myFile, substr, ',');
