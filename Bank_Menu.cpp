@@ -15,7 +15,7 @@ void splashScreen()
 
 
 	gotoxy(50, 9);
-	cout <<"  __                                                                              __                          \n";
+	cout << "  __                                                                              __                          \n";
 	gotoxy(50, 10);
 	cout << "|/  |           /         /|/|                                         /         /              /             \n";
 	gotoxy(50, 11);
@@ -84,6 +84,63 @@ void withdraw()
 	gotoxy(50, 17);
 	cout << "***************************************************************" << endl;
 	gotoxy(50, 18);
+
+	gotoxy(50, 22);
+	string menu;
+
+	gotoxy(50, 23);
+	cout << "MENU OPTIONS: \n";
+	gotoxy(50, 24);
+	cout << "1. Make a withdrawal\n";
+	gotoxy(50, 25);
+	cout << "2. Display account balance\n";
+	gotoxy(50, 26);
+	cout << "x. Return to main menu\n";
+
+	char choice = 'a';
+	while (choice != 'x' || 'X')
+	{
+		gotoxy(50, 23);
+		cout << "MENU OPTIONS: \n";
+		gotoxy(50, 24);
+		cout << "1. Make a withdrawal\n";
+		gotoxy(50, 25);
+		cout << "2. Display account balance\n";
+		gotoxy(50, 26);
+		cout << "x. Return to main menu\n";
+
+		gotoxy(50, 28);
+		cout << "Enter choice: ";
+
+		gotoxy(66, 28);
+		cin >> choice;
+
+		switch (choice)
+		{
+		case '1':
+			gotoxy(50, 30);
+			cout << "Choice 1 selected" << endl;
+			break;
+
+		case '2':
+			gotoxy(50, 30);
+			cout << "Choice 2 selected" << endl;
+			break;
+
+		case 'x':
+			cout << "Choice x selected" << endl;
+			return;
+			//break;
+
+		default:
+			cout << "ERROR: Please enter a valid choice" << endl << endl;
+			break;
+		}
+
+	}
+
+
+
 	system("PAUSE");
 
 }
@@ -112,7 +169,61 @@ void deposit()
 	gotoxy(50, 17);
 	cout << "***************************************************************" << endl;
 	gotoxy(50, 18);
+	gotoxy(50, 22);
+	string menu;
+
+	gotoxy(50, 23);
+	cout << "MENU OPTIONS: \n";
+	gotoxy(50, 24);
+	cout << "1. Make a deposit\n";
+	gotoxy(50, 25);
+	cout << "2. Display account balance\n";
+	gotoxy(50, 26);
+	cout << "x. Return to main menu\n";
+
+	char choice = 'a';
+	while (choice != 'x' || 'X')
+	{
+		gotoxy(50, 23);
+		cout << "MENU OPTIONS: \n";
+		gotoxy(50, 24);
+		cout << "1. Make a deposit\n";
+		gotoxy(50, 25);
+		cout << "2. Display account balance\n";
+		gotoxy(50, 26);
+		cout << "x. Return to main menu\n";
+
+		gotoxy(50, 28);
+		cout << "Enter choice: ";
+
+		gotoxy(64, 28);
+		cin >> choice;
+
+		switch (choice)
+		{
+		case '1':
+			gotoxy(50, 30);
+			cout << "Choice 1 selected" << endl;
+			break;
+
+		case '2':
+			gotoxy(50, 30);
+			cout << "Choice 2 selected" << endl;
+			break;
+
+		case 'x':
+			cout << "Choice x selected" << endl;
+			return;
+			//break;
+
+		default:
+			cout << "ERROR: Please enter a valid choice" << endl << endl;
+			break;
+		}
+
+	}
 	system("PAUSE");
+
 
 }
 
@@ -140,6 +251,60 @@ void showDatabase()
 	gotoxy(50, 17);
 	cout << "***************************************************************" << endl;
 	gotoxy(50, 18);
+	gotoxy(50, 22);
+
+	gotoxy(50, 23);
+	cout << "MENU OPTIONS: \n";
+	gotoxy(50, 24);
+	cout << "1. Display all customer accounts\n";
+	gotoxy(50, 25);
+	cout << "2. Display all customer accounts in alphabetical order\n";
+	gotoxy(50, 26);
+	cout << "3. Display all customer accounts in reverse alphabetical order\n";
+	gotoxy(50, 27);
+	cout << "x. Return to main menu\n";
+
+	char choice = 'a';
+	while (choice != 'x' || 'X')
+	{
+		gotoxy(50, 23);
+		cout << "MENU OPTIONS: \n";
+		gotoxy(50, 24);
+		cout << "1. Make a withdrawal\n";
+		gotoxy(50, 25);
+		cout << "2. Display account balance\n";
+		gotoxy(50, 26);
+		cout << "x. Return to main menu\n";
+
+		gotoxy(50, 28);
+		cout << "Enter choice: ";
+
+		gotoxy(64, 28);
+		cin >> choice;
+
+		switch (choice)
+		{
+		case '1':
+			gotoxy(50, 30);
+			cout << "Choice 1 selected" << endl;
+			break;
+
+		case '2':
+			gotoxy(50, 30);
+			cout << "Choice 2 selected" << endl;
+			break;
+
+		case 'x':
+			cout << "Choice x selected" << endl;
+			return;
+			//break;
+
+		default:
+			cout << "ERROR: Please enter a valid choice" << endl << endl;
+			break;
+		}
+
+	}
 	system("PAUSE");
 
 }
@@ -293,7 +458,7 @@ void mainMenu()
 		case '6':
 			cout << "Goodbye.\n";
 			return;
-			
+
 		default: cout << selection << " is not a valid menu item.\n";
 
 			cout << endl;
