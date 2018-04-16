@@ -8,10 +8,11 @@ using namespace std;
 
 class bankSkeleton {
 private:
-	string memberName;
-	string accName;
-	double balanceS;
-	double balanceC;
+	string firstName;
+	string lastName;
+
+	double savingsBalance;
+	double checkingBalance;
 	
 
 public:
@@ -22,20 +23,22 @@ public:
 	ifstream getFile();
 
 	//Get methods for the variables
-	string getAccName();
-	string getMemberName();
-	double getBalanceS();
-	double getBalanceC();
+	string getFirstName();
+	string getLastName();
+	double getSavingsBalance();
+	double getCheckingBalance();
 	
 	//Set methods for the variables
-	void setMemberName(string memberName);
-	void setAccName(string accName);
+	void setFirstName(string fn);
+	void setLastName(string ln);
 	void setBalanceS(double balanceS);
 	void setBalanceC(double balanceC);
 
 	//Miscelaneous methods
-	void withdraw(double w);
-	void deposit(double d);
+	void withdrawSavings(double w);
+	void depositSavings(double d);
+	void withdrawChecking(double w);
+	void depositChecking(double d);
 };
 
 
