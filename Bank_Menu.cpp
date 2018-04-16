@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Utilities.h"
+#include "Alt.h"
 #include "Bank_Menu.h"
 #include <string>
 #include <cctype>
@@ -151,32 +151,32 @@ void showDatabase()
 
 }
 
-int validate(string input, string checkType)
-{
-	int numoccur = 0;
-
-	if (checkType == "isalpha")
-	{
-		for (int x = 0; x < input.length(); x++)
-		{
-			if (!isalpha(input[x]))
-				numoccur++;
-		}
-	}
-
-
-	if (checkType == "isdigit")
-	{
-		for (int x = 0; x < input.length(); x++)
-		{
-			if (!isdigit(input[x]))
-				numoccur++;
-		}
-	}
-
-	return numoccur;
-
-}
+//int validate(string input, string checkType)
+//{
+//	int numoccur = 0;
+//
+//	if (checkType == "isalpha")
+//	{
+//		for (int x = 0; x < input.length(); x++)
+//		{
+//			if (!isalpha(input[x]))
+//				numoccur++;
+//		}
+//	}
+//
+//
+//	if (checkType == "isdigit")
+//	{
+//		for (int x = 0; x < input.length(); x++)
+//		{
+//			if (!isdigit(input[x]))
+//				numoccur++;
+//		}
+//	}
+//
+//	return numoccur;
+//
+//}
 
 void userInput()
 {
@@ -209,7 +209,7 @@ void userInput()
 
 	int numoccur = 0;
 
-	cout << "Please enter your first name: \n";
+	/*cout << "Please enter your first name: \n";
 	cin >> firstName;
 	invalidChractersFN = validate(firstName, "isalpha");
 
@@ -219,7 +219,7 @@ void userInput()
 
 	cout << "Please enter your student ID #: \n";
 	cin >> studentID;
-	invalidChractersID = validate(studentID, "isdigit");
+	invalidChractersID = validate(studentID, "isdigit");*/
 
 
 
