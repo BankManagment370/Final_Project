@@ -8,7 +8,7 @@ using namespace std;
 
 class bankSkeleton {
 private:
-	string holderName;
+	string memberName;
 	string accName;
 	double balanceS;
 	double balanceC;
@@ -18,7 +18,8 @@ public:
 	bankSkeleton();
 	ifstream getFile(ifstream infile);
 	string getAccount();
-	double getBalances();
+	string getMemberName();
+	double getBalanceS();
 	double getBalanceC();
 	void setAccName();
 	void setBalanceS();
