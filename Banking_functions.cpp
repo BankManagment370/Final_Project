@@ -60,7 +60,8 @@ void bankSkeleton::withdrawChecking(double w) {
 	cin >> w;
 }
 
-void bankSkeleton::withdrawSavings(double d) {
+void bankSkeleton::depositChecking(double d)
+{
 	cout << "Enter amount" << endl;
 	cin >> d;
 }
