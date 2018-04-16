@@ -3,6 +3,7 @@
 #include "Bank_Menu.h"
 #include <string>
 #include <cctype>
+#include <iomanip>
 
 using namespace std;
 
@@ -133,6 +134,7 @@ void withdraw()
 			//break;
 
 		default:
+			gotoxy(50, 34);
 			cout << "ERROR: Please enter a valid choice" << endl << endl;
 			break;
 		}
@@ -217,6 +219,7 @@ void deposit()
 			//break;
 
 		default:
+			gotoxy(50, 34);
 			cout << "ERROR: Please enter a valid choice" << endl << endl;
 			break;
 		}
@@ -295,11 +298,13 @@ void showDatabase()
 			break;
 
 		case 'x':
+			gotoxy(50, 30);
 			cout << "Choice x selected" << endl;
 			return;
 			//break;
 
 		default:
+			gotoxy(50, 34);
 			cout << "ERROR: Please enter a valid choice" << endl << endl;
 			break;
 		}
