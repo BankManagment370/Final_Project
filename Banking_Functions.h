@@ -21,6 +21,7 @@ public:
 	string getMemberName();
 	double getBalanceS();
 	double getBalanceC();
+	void setMemberName();
 	void setAccName();
 	void setBalanceS();
 	void setBalanceC();
