@@ -15,13 +15,13 @@ double bankSkeleton::getAccount() {
 return account;
 }
 double bankSkeleton::getBalanceS() {
-
+return balanceS;
 }
 double bankSkeleton::getBalanceC() {
-
+return balanceC;
 }
 void bankSkeleton::setAccName() {
-
+this.accName = accName;
 }
 void bankSkeleton::setBalanceS() {
 this.balanceS = balanceS;
