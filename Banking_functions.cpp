@@ -90,7 +90,7 @@ void bankSkeleton::readDataFromFile()
 		while (counter < 5)
 		{
 			string substr;
-			getline(ss, substr, ',');
+			getline(myFile, substr, ',');
 			result.push_back(substr);
 
 			if (counter == 0)
