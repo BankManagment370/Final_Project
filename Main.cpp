@@ -1,5 +1,4 @@
-#include "menu.h"
-#include "splash.h"
+#include "Bank_Menu.h"
 #include <string>
 #include <iostream>
 
