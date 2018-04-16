@@ -13,28 +13,21 @@ void splashScreen()
 	system("Color 2B");
 
 
-	//http://www.kammerl.de/ascii/AsciiSignature.php
-	string art = "";
-	art += "::::    ::::  :::   :::\n";
-	art += "+:+:+: :+:+:+ :+:   :+:\n";
-	art += "+:+ +:+:+ +:+  +:+ +:+ \n";
-	art += "+#+  +:+  +#+   +#++:  \n";
-	art += "+#+       +#+    +#+   \n";
-	art += "#+#       #+#    #+#   \n";
-	art += "###       ###    ###   \n";
-	cout << art;
 
 	gotoxy(50, 9);
-	cout <<"    dMMMMb  dMMMMb  .aMMMb dMMMMMP dMMMMMP .aMMMb dMMMMMMP\n";
+	cout <<"  __                                                                              __                          \n";
 	gotoxy(50, 10);
-	cout << "   dMP.dMP dMP.dMP dMP\"dMP    dMP dMP     dMP\"VMP   dMP   \n";
+	cout << "|/  |           /         /|/|                                         /         /              /             \n";
 	gotoxy(50, 11);
-	cout << "  dMMMMP\" dMMMMK\" dMP dMP    dMP dMMMP   dMP       dMP    \n";
+	cout << "|___| ___  ___ (         ( / | ___  ___  ___  ___  ___  _ _  ___  ___ (___      (___       ___ (___  ___  _ _ \n";
 	gotoxy(50, 12);
-	cout << " dMP     dMP\"AMF dMP.aMPdK.dMP dMP     dMP.aMP   dMP     \n";
+	cout << "|   )|   )|   )|___)     |   )|   )|   )|   )|   )|___)| | )|___)|   )|             )\\   )|___ |    |___)| | )\n";
 	gotoxy(50, 13);
-	cout << "dMP     dMP dMP  VMMMP\" VMMMP\" dMMMMMP  VMMMP\"   dMP      \n";
+	cout << "|__/ |__/||  / | \\       |  / |__/||  / |__/||__/ |__  |  / |__  |  / |__        __/  \\_/  __/ |__  |__  |  / \n";
+	gotoxy(50, 14);
+	cout << "																												\n";
 
+	gotoxy(50, 15);
 	cin.get();
 
 	system("PAUSE");
