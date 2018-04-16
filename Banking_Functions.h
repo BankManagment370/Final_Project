@@ -16,22 +16,20 @@ private:
 
 public:
 	bankSkeleton();
-	ifstream getFile(ifstream infile);
-	string getAccount();
+	ifstream getFile();
+	string getAccName();
 	string getMemberName();
 	double getBalanceS();
 	double getBalanceC();
-	void setMemberName();
-	void setAccName();
-	void setBalanceS();
-	void setBalanceC();
+	void setMemberName(string memberName);
+	void setAccName(string accName);
+	void setBalanceS(double balanceS);
+	void setBalanceC(double balanceC);
 	void withdraw(double w);
 	void deposit(double d);
 	void searchRecords();
 	void print();
 };
-
-
 
 
 
