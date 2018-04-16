@@ -15,20 +15,27 @@ private:
 	
 
 public:
+	//constructor
 	bankSkeleton();
+	
+	//Get the output file
 	ifstream getFile();
+
+	//Get methods for the variables
 	string getAccName();
 	string getMemberName();
 	double getBalanceS();
 	double getBalanceC();
+	
+	//Set methods for the variables
 	void setMemberName(string memberName);
 	void setAccName(string accName);
 	void setBalanceS(double balanceS);
 	void setBalanceC(double balanceC);
+
+	//Miscelaneous methods
 	void withdraw(double w);
 	void deposit(double d);
-	void searchRecords();
-	void print();
 };
 
 
