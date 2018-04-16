@@ -1,4 +1,5 @@
-#include <Alt.h>  
+#include "Alt.h"
+#include <windows.h>
 COORD coord = { 0,0 };
 
 void gotoxy(int x, int y)         //For Setting the position of Cursor
