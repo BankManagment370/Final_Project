@@ -1,12 +1,14 @@
-#include <iostream>
+=#include <iostream>
 #include "Alt.h"
 #include "Bank_Menu.h"
+#include "Banking_Functions.h"
 #include <string>
 #include <cctype>
 #include <iomanip>
 
 using namespace std;
 
+bankSkeleton myBank;
 
 void splashScreen()
 {
@@ -120,7 +122,7 @@ void withdraw()
 		{
 		case '1':
 			gotoxy(50, 30);
-			cout << "Choice 1 selected" << endl;
+			myBank.readDataFromFile();
 			break;
 
 		case '2':
