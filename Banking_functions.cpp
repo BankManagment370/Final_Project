@@ -20,6 +20,9 @@ return balanceS;
 double bankSkeleton::getBalanceC() {
 return balanceC;
 }
+void bankSkeleton::setMemberName(){
+this.memberName = memberName;
+}
 void bankSkeleton::setAccName() {
 this.accName = accName;
 }
