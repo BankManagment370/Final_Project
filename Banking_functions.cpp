@@ -5,14 +5,12 @@ using namespace std;
 bankSkeleton::bankSkeleton() {
 
 }
-ifstream bankSkeleton::getFile(ifstream infile) {
-
+ifstream bankSkeleton::getFile() {
+	ifstream myfile;
+	return myfile;
 }
 string bankSkeleton::getMemberName(){
 return accName;  
-}
-double bankSkeleton::getAccount() {
-return account;
 }
 double bankSkeleton::getBalanceS() {
 return balanceS;
@@ -20,17 +18,17 @@ return balanceS;
 double bankSkeleton::getBalanceC() {
 return balanceC;
 }
-void bankSkeleton::setMemberName(){
-this.memberName = memberName;
+void bankSkeleton::setMemberName(string memberName){
+memberName = memberName;
 }
-void bankSkeleton::setAccName() {
-this.accName = accName;
+void bankSkeleton::setAccName(string accName) {
+accName = accName;
 }
-void bankSkeleton::setBalanceS() {
-this.balanceS = balanceS;
+void bankSkeleton::setBalanceS(double balanceS) {
+balanceS = balanceS;
 }
-void bankSkeleton::setBalanceC() {
-this.balanceC = balanceC;
+void bankSkeleton::setBalanceC(double balanceC) {
+balanceC = balanceC;
 }
 void bankSkeleton::withdraw(double w) {
 cout<<"Enter amount"<<endl;
