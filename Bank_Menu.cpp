@@ -1,4 +1,4 @@
-=#include <iostream>
+#include <iostream>
 #include "Alt.h"
 #include "Bank_Menu.h"
 #include "Banking_Functions.h"
