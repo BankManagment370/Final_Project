@@ -18,6 +18,7 @@ public:
 	void displayList(void);
 	void deleteBeg();
 	void deleteEnd();
+	void add(string fName, string lName, double savingsBal, double checkingBal);
 	void sorting();
 private:
 	int length;
