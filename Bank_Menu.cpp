@@ -11,6 +11,8 @@ using namespace std;
 
 bankSkeleton myBank;
 LinkedListFunctions myFunctions;
+Node *node = new Node();
+
 void splashScreen()
 {
 	system("CLS");
@@ -107,7 +109,7 @@ void withdraw()
 		gotoxy(50, 23);
 		cout << "MENU OPTIONS: \n";
 		gotoxy(50, 24);
-		cout << "1. Make a withdrawal\n";
+		cout << "1. Make a withdrawal \n";
 		gotoxy(50, 25);
 		cout << "2. Display account balance\n";
 		gotoxy(50, 26);
@@ -122,13 +124,16 @@ void withdraw()
 		switch (choice)
 		{
 		case '1':
-			gotoxy(50, 31);
 			myBank.readDataFromFile();
+			gotoxy(50, 31);
+			//myFunctions.displayList();
+			gotoxy(50, 40);
+			myBank.withdrawSavings();
 			break;
 
 		case '2':
 			gotoxy(50, 31);
-			cout << "Choice 2 selected" << endl;
+
 			myFunctions.displayList();
 			break;
 
