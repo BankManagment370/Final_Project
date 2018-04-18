@@ -5,12 +5,12 @@
 #include <sstream>
 #include "Alt.h"
 #include "MyNode.h"
-#include "LinkedListFunctions.h"
+#include "List.h"
 
 
 using namespace std;
-LinkedListFunctions myFuncs;
-Node *myNode = new Node;
+List myFuncs;
+Node *myNode = new Node();
 
 bankSkeleton::bankSkeleton() {
 
@@ -162,14 +162,15 @@ void bankSkeleton::readDataFromFile()
 		checkingBal = stod(checkingBalAsString);
 
 		cout << endl;
-		
+		int count = 1;
+
 		if (count == 1)
 		{
-			myFuncs.add(fName, lName, savingBal, checkingBal);
+			myFuncs.addAtEnd(fName, lName, savingBal, checkingBal);
 			count++;
 		}
 		else if (count > 1) {
-			myFuncs.add(fName, lName, savingBal, checkingBal);
+			myFuncs.addAtEnd(fName, lName, savingBal, checkingBal);
 		}
 		count++;
 	}
