@@ -35,7 +35,7 @@ public:
 	void setBalanceC(double balanceC);
 
 	//Miscelaneous methods
-	void withdrawSavings(double w);
+	void withdrawSavings();
 	void depositSavings(double d);
 	void withdrawChecking(double w);
 	void depositChecking(double d);
