@@ -5,13 +5,11 @@
 #include <string>
 #include <cctype>
 #include <iomanip>
-#include "LinkedListFunctions.h"
+#include "List.h"
 
 using namespace std;
 
-bankSkeleton myBank;
-LinkedListFunctions myFunctions;
-Node *node = new Node();
+
 
 void splashScreen()
 {
@@ -67,7 +65,7 @@ void getAccount()
 }
 
 
-void withdraw()
+void withdraw(List &list, bankSkeleton &myBank)
 {
 	system("Color 2B");
 	system("CLS");
@@ -124,17 +122,13 @@ void withdraw()
 		switch (choice)
 		{
 		case '1':
-			myBank.readDataFromFile();
 			gotoxy(50, 31);
-			//myFunctions.displayList();
-			gotoxy(50, 40);
-			myBank.withdrawSavings();
+			myBank.readDataFromFile();
 			break;
 
 		case '2':
 			gotoxy(50, 31);
-
-			myFunctions.displayList();
+			list.displayList();
 			break;
 
 		case 'x':
@@ -416,7 +410,8 @@ void userInput()
 
 void mainMenu()
 {
-
+	bankSkeleton myBank;
+	List list;
 
 	char selection;
 
@@ -454,7 +449,7 @@ void mainMenu()
 			break;
 
 		case '2':
-			withdraw();
+			withdraw(list, myBank);
 			break;
 		case '3':
 			deposit();
