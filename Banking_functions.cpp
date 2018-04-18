@@ -4,8 +4,13 @@
 #include <vector>
 #include <sstream>
 #include "Alt.h"
+#include "MyNode.h"
+#include "LinkedListFunctions.h"
+
 
 using namespace std;
+LinkedListFunctions myFuncs;
+Node *myNode = new Node;
 
 bankSkeleton::bankSkeleton() {
 
@@ -72,56 +77,49 @@ void bankSkeleton::depositChecking(double d)
 void bankSkeleton::readDataFromFile()
 {
 	string fileName;
+	string line = "";
+	ifstream myFile;
+	stringstream ss;
+	int count = 1, rows = 0, numbOfTimes = 0;
+
 	cout << "Enter a file to read from: " << endl;
 	cin >> fileName;
 
-	ifstream myFile;
 	myFile.open(fileName);
-
-
-	stringstream ss;
-	vector<string> result;
-
-	while (ss.good())
+	
+	while (!myFile.eof())
 	{
-		string fName, lName, savingBal, checkingBal;
-		int counter = 0;
-
-		while (counter < 4)
-		{
-			string substr;
-			getline(myFile, substr, ',');
-			result.push_back(substr);
-
-			if (counter == 0)
-			{
-				fName = substr;
-				counter++;
-			}
-			else if(counter == 1)
-			{
-				lName = substr;
-				counter++;
-			}
-			else if(counter == 2)
-			{
-				savingBal = substr;
-				counter++;
-			}
-			else
-			{
-				checkingBal = substr;
-				counter =0;
-			}
-			gotoxy(50, 70);
-			cout << "First name: " << fName << endl;
-			gotoxy(50, 71);
-			cout << "Last name: " << lName << endl;
-			gotoxy(50, 72);
-			cout << "Savings Account Bal: " << savingBal << endl;
-			gotoxy(50, 73);
-			cout << "Checking account Bal: " << checkingBal << endl;
-
-		}
+		getline(myFile, line, ',');
+		ss << line << ':';
 	}
-}
+	myFile.seekg(0);
+	
+	//Get number of rows in file
+
+	string fName = "";
+	string lName = "";
+	string savingBal = "";  
+	string checkingBal = ""; 
+
+	while (!ss.eof())
+	{
+		getline(ss, fName, ':');
+		getline(ss, lName, ':');
+		getline(ss, savingBal, ':');
+		getline(ss, checkingBal, '\n');
+
+	
+		cout << endl;
+		
+		if (count == 1)
+		{
+			myFuncs.add(fName, lName, stod(savingBal), stod(checkingBal));
+			count++;
+		}
+		else if (count >= 2) {
+			myFuncs.add(fName, lName, stod(savingBal), stod(checkingBal));
+		}
+		count++;
+	}
+
+	}
