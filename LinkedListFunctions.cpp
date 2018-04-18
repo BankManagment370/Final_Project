@@ -1,5 +1,8 @@
 #include "LinkedListFunctions.h"
 #include<iostream>
+#include "Alt.h"
+#include "MyNode.h"
+
 using namespace std;
 
 //O(1)
@@ -91,43 +94,6 @@ void LinkedListFunctions::insertNode(int pos, string fName, string lName, double
 	}
 }
 
-void LinkedListFunctions::deleteAtPosition(int pos)
-{
-	if (pos < 0 || pos > length)
-	{
-		cout << "Wrong position\n";
-	}
-	else
-	{
-		if (head == NULL)
-		{
-			cout << "The List is Empty\n";
-		}
-		else if (pos == 1)
-		{
-			Node * temp = head;
-			head = head->next;
-			delete temp;
-			length--;
-		}
-		else
-		{
-			Node *cur = head;
-			Node *pre = head;
-
-			for (int i = 1; i < pos; i++)
-			{
-				pre = cur;
-
-				cur = cur->next;
-			}
-
-			pre->next = cur->next;
-			delete cur;
-			length--;
-		}
-	}
-}
 
 //O(1)
 bool LinkedListFunctions::isFull() const
@@ -217,53 +183,47 @@ void LinkedListFunctions::deleteNode(string fName, string lName, double savingsB
 //O(n)
 void LinkedListFunctions::displayList()
 {
-	Node *temp;
-	temp = head;
-	while (temp != NULL)
-	{
-		cout << temp->firstName << "\t";
-		cout << temp->lastName << "\t";
-		cout << temp->savingsBalance << "\t";
-		cout << temp->checkingBalance << "\t";
+	Node *newNode;
+	newNode = head;
+	cout << "Inside the displayList function" << endl;
 
-		temp = temp->next;
-	}
+	while (newNode != NULL);
+	{
+		cout << newNode->firstName << "\t";
+		cout << newNode->lastName << "\t";
+		cout << newNode->savingsBalance << "\t";
+		cout << newNode->checkingBalance << "\t";
+
+		newNode = newNode->next;
+	} 
 	cout << endl;
 }
 
-void LinkedListFunctions::deleteBeg()
-{
-	Node* temp = head;
-	head = head->next;
-	delete temp;
-	length--;
-}
-
-
-void LinkedListFunctions::deleteEnd()
-{
-	Node *currNode = head;
-
-	while (currNode->next && currNode->next->next != NULL)
-	{
-		currNode = currNode->next;
-	}
-	delete currNode->next;
-	currNode->next = NULL;
-
-	length--;
-}
-
-
 void LinkedListFunctions::add(string fName, string lName, double savingsBal, double checkingBal) {
-	Node *node1 = new Node();
-	node1->firstName = fName;
-	node1->lastName = lName;
-	node1->savingsBalance = savingsBal;
-	node1->checkingBalance = checkingBal;
-	node1->next = head;
-	head = node1;
-	
+	Node *newNode = new Node();
+	newNode->firstName = fName;
+	newNode->lastName = lName;
+	newNode->savingsBalance = savingsBal;
+	newNode->checkingBalance = checkingBal;
+	newNode->next = NULL;
+
+
+	if (head == NULL) {
+		head = newNode;
+		cout << "Node added at the head!" << endl;
+	}
+	else {
+		Node *temp = head;
+		int count = 1;
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+			cout << count << ": number of nodes created" << endl
+
+			++count;
+		}
+		temp->next = newNode;
+	}	
 	length++;
 }
 
@@ -275,40 +235,3 @@ int LinkedListFunctions::getLength() const
 {
 	return length;
 }
-
-
-/*
-void UnSortedType::sorting() {
-Node * temphead = head;
-Node * tempnode = NULL;
-double tempdata;
-string tempname;
-int counter = 0;
-while (temphead)
-{
-temphead = temphead->next;
-counter++;
-}
-temphead = head;
-
-for (int j = 0; j<counter; j++)
-{
-while (temphead->next)  //iterate through list until next is null
-{
-if (temphead->data > temphead->next->data)
-{
-tempnode = temphead;
-temphead = temphead->next;
-temphead->next = tempnode;
-tempdata = temphead->data;
-temphead->data = temphead->next->data;
-temphead->next->data = tempdata;
-temphead = temphead->next;//increment node
-}
-else
-temphead = temphead->next;//increment node
-}
-temphead = head;//reset temphead
-}
-}
-*/
