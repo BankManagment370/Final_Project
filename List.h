@@ -1,9 +1,9 @@
 #include "MyNode.h"
 
-class LinkedListFunctions {
+class List {
 public:
-	LinkedListFunctions(void);	// constructor
-	~LinkedListFunctions(void);	// destructor
+	List(void);	// constructor
+	~List(void);	// destructor
 
 	bool isEmpty() const;
 	bool isFull() const;
@@ -14,9 +14,9 @@ public:
 	int findNode(string fName, string lName, double savingsBal, double checkingBal);
 	void deleteNode(string fName, string lName, double savingsBal, double checkingBal);
 	int getLength() const;
-	void displayList(void);
+	void displayList();
 
-	void add(string fName, string lName, double savingsBal, double checkingBal);
+	void addAtEnd(string fName, string lName, double savingsBal, double checkingBal);
 	void sorting();
 private:
 	int length;
