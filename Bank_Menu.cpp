@@ -5,11 +5,12 @@
 #include <string>
 #include <cctype>
 #include <iomanip>
+#include "LinkedListFunctions.h"
 
 using namespace std;
 
 bankSkeleton myBank;
-
+LinkedListFunctions myFunctions;
 void splashScreen()
 {
 	system("CLS");
@@ -121,13 +122,14 @@ void withdraw()
 		switch (choice)
 		{
 		case '1':
-			gotoxy(50, 30);
+			gotoxy(50, 31);
 			myBank.readDataFromFile();
 			break;
 
 		case '2':
-			gotoxy(50, 30);
+			gotoxy(50, 31);
 			cout << "Choice 2 selected" << endl;
+			myFunctions.displayList();
 			break;
 
 		case 'x':
@@ -296,7 +298,6 @@ void showDatabase()
 
 		case '2':
 			gotoxy(50, 30);
-			cout << "Choice 2 selected" << endl;
 			break;
 
 		case 'x':
