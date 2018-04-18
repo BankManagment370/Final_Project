@@ -12,22 +12,19 @@ LinkedListFunctions::LinkedListFunctions()
 //O(1)
 void LinkedListFunctions::insertBeg(string fName, string lName, double savingsBal, double checkingBal)
 {
-	Node* tmp = new Node();
+	Node* node1 = new Node();
 	Node * current = new Node();
 
-	tmp->firstName = fName;
-	tmp->lastName = lName;
-	tmp->savingsBalance = savingsBal;
-	tmp->checkingBalance = checkingBal;
+	node1->firstName = fName;
+	node1->lastName = lName;
+	node1->savingsBalance = savingsBal;
+	node1->checkingBalance = checkingBal;
 
 		/* Locate the node before the point of insertion */
 		current = head;
-		while (current->next)
-		{
-			current = current->next;
-		}
-		tmp->next = current->next;
-		current->next = tmp;
+	
+		node1->next = current->next;
+		current->next = node1;
 	}
 
 //O(n)
@@ -40,19 +37,6 @@ void LinkedListFunctions::insertEnd(string fName, string lName, double savingsBa
 	newNode->checkingBalance = checkingBal;
 	newNode->next = NULL;
 
-	if (head == NULL) //List empty
-	{
-		head = newNode;
-	}
-	else
-	{
-		Node *temp = head;
-		while (temp->next != NULL)
-		{
-			temp = temp->next; //traverse the list
-		}
-		temp->next = newNode;
-	}
 	length++;
 }
 
@@ -271,21 +255,17 @@ void LinkedListFunctions::deleteEnd()
 }
 
 
-//void UnSortedType::deleteEnd()
-//{
-//	Node* prev = head;
-//	Node* ptr = head;
-//
-//	while (ptr->next != NULL)
-//	{
-//		prev = ptr;
-//		ptr = ptr->next;
-//	}
-//
-//	prev->next = NULL;
-//	delete ptr;
-//	length--;
-//}
+void LinkedListFunctions::add(string fName, string lName, double savingsBal, double checkingBal) {
+	Node *node1 = new Node();
+	node1->firstName = fName;
+	node1->lastName = lName;
+	node1->savingsBalance = savingsBal;
+	node1->checkingBalance = checkingBal;
+	node1->next = head;
+	head = node1;
+	
+	length++;
+}
 
 
 
