@@ -13,11 +13,9 @@ public:
 	void insertNode(int pos, string fName, string lName, double savingsBal, double checkingBal);
 	int findNode(string fName, string lName, double savingsBal, double checkingBal);
 	void deleteNode(string fName, string lName, double savingsBal, double checkingBal);
-	void deleteAtPosition(int pos);
 	int getLength() const;
 	void displayList(void);
-	void deleteBeg();
-	void deleteEnd();
+
 	void add(string fName, string lName, double savingsBal, double checkingBal);
 	void sorting();
 private:
