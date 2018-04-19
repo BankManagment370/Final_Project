@@ -207,10 +207,18 @@ void List::addAtEnd(string fName, string lName, double savingsBal, double checki
 	last->checkingBalance = checkingBal;
 	last->next = NULL;
 
+	//Output to the console for testing purposes
+	//NOTE: the data is being stored, however we don't know how to
+	//access the data from the withdraw function. We can't access the list.
+	cout << "\n";
+	cout << last->firstName << "\t";
+	cout << last->lastName << "\t";
+	cout << last->savingsBalance << "\t";
+	cout << last->checkingBalance << "\t";
+
 
 	if (head == NULL) {
 		head = last;
-		cout << "Node added at the head!" << endl;
 	}
 	else {
 		Node *temp = new Node;
@@ -221,7 +229,6 @@ void List::addAtEnd(string fName, string lName, double savingsBal, double checki
 		{
 			temp = temp->next;
 			count++;
-			cout << count << ": number of nodes created" << endl;
 		}
 		temp->next = last;
 	}	
