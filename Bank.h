@@ -6,7 +6,7 @@ using namespace std;
 #ifndef BANKING_FUNCTIONS_H
 #define BANKING_FUNCTIONS_H
 
-class bankSkeleton {
+class Bank {
 private:
 	string firstName;
 	string lastName;
@@ -17,7 +17,7 @@ private:
 
 public:
 	//constructor
-	bankSkeleton();
+	Bank();
 	
 	//Get the output file
 	ifstream getFile();
