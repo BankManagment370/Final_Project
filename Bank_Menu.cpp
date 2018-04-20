@@ -1,23 +1,33 @@
 #include <iostream>
 #include "Alt.h"
 #include "Bank_Menu.h"
-#include "Bank.h"
+#include "Banking_Functions.h"
 #include <string>
 #include <cctype>
 #include <iomanip>
-#include "List.h"
+#include "linkedListFunctions.h"
 
 using namespace std;
 
+bankSkeleton myBank;
+LinkedListFunctions myFunctions;
 
-
+string withdrawCheckingFirstName, withdrawCheckingLastName, withdrawSavingsFirstName, withdrawSavingsLastName;
+string depositCheckingFirstName, depositCheckingLastName, depositSavingsFirstName, depositSavingsLastName;
+string findAccFirstName, findAccLastName;
+char accountType;
+string checkingAcc = "Checking";
+string savingsAcc = "Savings";
 void splashScreen()
 {
 	system("CLS");
 	system("Color 2B");
 
+	myFunctions.add("Chris", "Belyski", 2000.00, 500.00);
+	myFunctions.add("David", "Hartglass", 1500.00, 700.00);
+	myFunctions.add("Brandon", "Livingston", 2500.00, 600.00);
 
-	//ASCII Art
+
 	gotoxy(50, 9);
 	cout << "  __                                                                              __                          \n";
 	gotoxy(50, 10);
@@ -37,7 +47,7 @@ void splashScreen()
 	system("PAUSE");
 
 }
-void getAccount(List &list, Bank &myBank)
+void getAccount()
 {
 	system("Color 2B");
 	system("CLS");
@@ -60,13 +70,17 @@ void getAccount(List &list, Bank &myBank)
 	gotoxy(50, 17);
 	cout << "***************************************************************" << endl;
 	gotoxy(50, 18);
+
+	cout << endl;
+	cout << "Enter the name under the account you are searching for: ";
+	cin >> findAccFirstName >> findAccLastName;
+	myFunctions.findAccount(findAccFirstName, findAccLastName);
 	system("PAUSE");
 
 }
 
-// We are trying to use a lunked list implementation, but cannot find a way to get store the data into
-// the list, and perform functions on that data without the program crashing
-void withdraw(List &list, Bank &myBank)
+
+void withdraw()
 {
 	system("Color 2B");
 	system("CLS");
@@ -108,7 +122,7 @@ void withdraw(List &list, Bank &myBank)
 		gotoxy(50, 23);
 		cout << "MENU OPTIONS: \n";
 		gotoxy(50, 24);
-		cout << "1. Make a withdrawal \n";
+		cout << "1. Make a withdrawal\n";
 		gotoxy(50, 25);
 		cout << "2. Display account balance\n";
 		gotoxy(50, 26);
@@ -123,13 +137,38 @@ void withdraw(List &list, Bank &myBank)
 		switch (choice)
 		{
 		case '1':
+			system("CLS");
 			gotoxy(50, 31);
-			myBank.readDataFromFile();
+			//myBank.readDataFromFile();
+			myFunctions.displayList();
+			cout << "Which account would you like to withdraw from, Checking(c) or Savings(s)?: ";
+			cin >> accountType;
+
+			cout << "Account Type: " << accountType << endl;
+			if (accountType == 'c')
+			{
+				cout << "Enter the name under the Checking Account: ";
+				cin >> withdrawCheckingFirstName >> withdrawCheckingLastName;
+				myFunctions.checkingWithdraw(withdrawCheckingFirstName, withdrawCheckingLastName);
+			}
+			else if(accountType == 's')
+			{
+				cout << "Enter the name under the Savings Account: ";
+				cin >> withdrawSavingsFirstName >> withdrawSavingsLastName;
+				myFunctions.savingsWithdraw(withdrawSavingsFirstName, withdrawSavingsLastName);
+			}
+
 			break;
 
 		case '2':
+			system("CLS");
 			gotoxy(50, 31);
-			list.displayList();
+			cout << "Choice 2 selected" << endl;
+		
+			cout << "Enter the name under the account you are searching for: ";
+			cin >> findAccFirstName >> findAccLastName;
+			myFunctions.findAccount(findAccFirstName, findAccLastName);
+
 			break;
 
 		case 'x':
@@ -152,7 +191,7 @@ void withdraw(List &list, Bank &myBank)
 }
 
 
-void deposit(List &list, Bank &myBank)
+void deposit()
 {
 	system("Color 2B");
 	system("CLS");
@@ -178,6 +217,14 @@ void deposit(List &list, Bank &myBank)
 	gotoxy(50, 22);
 	string menu;
 
+	gotoxy(50, 23);
+	cout << "MENU OPTIONS: \n";
+	gotoxy(50, 24);
+	cout << "1. Make a deposit\n";
+	gotoxy(50, 25);
+	cout << "2. Display account balance\n";
+	gotoxy(50, 26);
+	cout << "x. Return to main menu\n";
 
 	char choice = 'a';
 	while (choice != 'x' || 'X')
@@ -202,11 +249,31 @@ void deposit(List &list, Bank &myBank)
 		case '1':
 			gotoxy(50, 30);
 			cout << "Choice 1 selected" << endl;
+
+			myFunctions.displayList();
+			cout << "Which account would you like to deposit to, Checking(c) or Savings(s)?: ";
+			cin >> accountType;
+
+			cout << "Account Type: " << accountType << endl;
+			if (accountType == 'c')
+			{
+				cout << "Enter the name under the Checking Account: ";
+				cin >> depositCheckingFirstName >> depositCheckingLastName;
+				myFunctions.checkingDeposit(depositCheckingFirstName, depositCheckingLastName);
+			}
+			else if (accountType == 's')
+			{
+				cout << "Enter the name under the Savings Account: ";
+				cin >> depositSavingsFirstName >> depositSavingsLastName;
+				myFunctions.savingsDeposit(depositSavingsFirstName, depositSavingsLastName);
+			}
 			break;
 
 		case '2':
 			gotoxy(50, 30);
 			cout << "Choice 2 selected" << endl;
+
+			myFunctions.displayList();
 			break;
 
 		case 'x':
@@ -227,7 +294,7 @@ void deposit(List &list, Bank &myBank)
 }
 
 
-void showAccounts(List &list, Bank &myBank)
+void showDatabase()
 {
 	system("Color 2B");
 	system("CLS");
@@ -240,7 +307,7 @@ void showAccounts(List &list, Bank &myBank)
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                       Show Accounts                         *" << endl;
+	cout << "*                       Show Database                         *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -259,10 +326,8 @@ void showAccounts(List &list, Bank &myBank)
 		gotoxy(50, 23);
 		cout << "MENU OPTIONS: \n";
 		gotoxy(50, 24);
-		cout << "1. Show accounts in alphabetical order\n";
+		cout << "1. Display all customer accounts\n";
 		gotoxy(50, 25);
-		cout << "2. Show accounts in reverse - alphabetical order\n";
-		gotoxy(50, 26);
 		cout << "x. Return to main menu\n";
 
 		gotoxy(50, 28);
@@ -276,11 +341,7 @@ void showAccounts(List &list, Bank &myBank)
 		case '1':
 			gotoxy(50, 30);
 			cout << "Choice 1 selected" << endl;
-			break;
-
-		case '2':
-			gotoxy(50, 30);
-			cout << "Choice 2 selected" << endl;
+			myFunctions.displayList();
 			break;
 
 		case 'x':
@@ -301,34 +362,8 @@ void showAccounts(List &list, Bank &myBank)
 }
 
 
-int validate(string input, string checkType)
-{
-	int numoccur = 0;
 
-	if (checkType == "isalpha")
-	{
-		for (unsigned int x = 0; x < input.length(); x++)
-		{
-			if (!isalpha(input[x]))
-				numoccur++;
-		}
-	}
-
-
-	if (checkType == "isdigit")
-	{
-		for (unsigned int x = 0; x < input.length(); x++)
-		{
-			if (!isdigit(input[x]))
-				numoccur++;
-		}
-	}
-
-	return numoccur;
-
-}
-
-void userInput(List &list, Bank &myBank)
+void userInput()
 {
 	system("Color 2B");
 	system("CLS");
@@ -353,30 +388,21 @@ void userInput(List &list, Bank &myBank)
 	gotoxy(50, 18);
 	system("PAUSE");
 	system("cls");
-	
 
-	//Code to validate user input
-	string firstName, lastName, savingBal, checkingBal;
-	int invalidChractersFN = 0, invalidChractersLN = 0, invalidChractersSB = 0, invalidChractersCB = 0;
+	string firstName, lastName, studentID;
+	int invalidChractersFN = 0, invalidChractersLN = 0, invalidChractersID = 0;;
 
 	int numoccur = 0;
 
-	cout << "Please enter your first name: \n";
+	/*cout << "Please enter your first name: \n";
 	cin >> firstName;
 	invalidChractersFN = validate(firstName, "isalpha");
-
 	cout << "Please enter our last name: \n";
 	cin >> lastName;
 	invalidChractersLN = validate(lastName, "isalpha");
-
-	cout << "Please enter your Savings Balance: \n";
-	cin >> savingBal;
-	invalidChractersSB = validate(savingBal, "isdigit");
-
-
-	cout << "Please enter your Checking Balance: \n";
-	cin >> checkingBal;
-	invalidChractersCB = validate(checkingBal, "isdigit");
+	cout << "Please enter your student ID #: \n";
+	cin >> studentID;
+	invalidChractersID = validate(studentID, "isdigit");*/
 
 
 
@@ -390,16 +416,10 @@ void userInput(List &list, Bank &myBank)
 		cout << "You have " << invalidChractersLN << " invalid characters in last name" << endl;
 	}
 
-	if (invalidChractersSB > 0)
+	if (invalidChractersID > 0)
 	{
-		cout << "You have " << invalidChractersSB << " invalid characters in savingBal" <<  endl;
+		cout << "You have " << invalidChractersID << " invalid characters in student id" << endl;
 	}
-
-	if (invalidChractersCB > 0)
-	{
-		cout << "You have " << invalidChractersCB << " invalid characters in savingBal" << endl;
-	}
-
 
 	system("PAUSE");
 
@@ -408,15 +428,10 @@ void userInput(List &list, Bank &myBank)
 
 void mainMenu()
 {
-	//Instances of bank and list classes
-	Bank myBank;
-	List list;
+
 
 	char selection;
 
-	myBank.readDataFromFile();
-
-	//Main menu that calls submenu's (defined above)
 	do
 	{
 		system("Color 1A");
@@ -424,7 +439,7 @@ void mainMenu()
 		gotoxy(50, 9);
 		cout << " Farmingdale Computer Systems Banking System\n";
 		gotoxy(50, 10);
-		cout << " ============================================\n";
+		cout << " ====================================\n";
 		gotoxy(50, 11);
 		cout << " 1. Find Account\n";
 		gotoxy(50, 12);
@@ -438,7 +453,7 @@ void mainMenu()
 		gotoxy(50, 16);
 		cout << " 6. Exit\n";
 		gotoxy(50, 17);
-		cout << " ============================================\n";
+		cout << " ====================================\n";
 		gotoxy(50, 18);
 		cout << " Enter your selection: ";
 		cin >> selection;
@@ -447,22 +462,22 @@ void mainMenu()
 		switch (selection)
 		{
 		case '1':
-			getAccount(list, myBank);
+			getAccount();
 			break;
 
 		case '2':
-			withdraw(list, myBank);
+			withdraw();
 			break;
 		case '3':
-			deposit(list, myBank);
+			deposit();
 			break;
 
 		case '4':
-			showAccounts(list, myBank);
+			showDatabase();
 			break;
 
 		case '5':
-			userInput(list, myBank);
+			userInput();
 			break;
 
 		case '6':
