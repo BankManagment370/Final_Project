@@ -71,7 +71,9 @@ void getAccount()
 	cout << "***************************************************************" << endl;
 	gotoxy(50, 18);
 
+	gotoxy(50, 20);
 	cout << endl;
+	gotoxy(50, 22);
 	cout << "Enter the name under the account you are searching for: ";
 	cin >> findAccFirstName >> findAccLastName;
 	myFunctions.findAccount(findAccFirstName, findAccLastName);
