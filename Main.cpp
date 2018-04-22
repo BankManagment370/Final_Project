@@ -34,7 +34,6 @@ int main()
 
 
 
-	//cout << art;
 	cin.get();
 	splashScreen();
 	mainMenu();
