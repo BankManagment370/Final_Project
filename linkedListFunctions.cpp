@@ -1,5 +1,6 @@
 #include "LinkedListFunctions.h"
 #include<iostream>
+#include "Alt.h"
 using namespace std;
 
 //O(1)
@@ -222,8 +223,13 @@ void LinkedListFunctions::deleteNode(string fName, string lName, double savingsB
 //O(n)
 void LinkedListFunctions::displayList()
 {
+	system("CLS");
 	Node *temp;
 	temp = head;
+	cout << endl << endl;
+	cout << endl << endl;
+	cout << "Current list of customer accounts:" << endl;
+	cout << "**********************************" << endl;
 	while (temp != NULL)
 	{
 		cout << "First Name: " << temp->firstName << "\t";
@@ -231,10 +237,9 @@ void LinkedListFunctions::displayList()
 		cout << "Savings Balance: " << temp->savingsBalance << "\t";
 		cout << "Checking Balance: " << temp->checkingBalance << "\t";
 		cout << endl;
-
 		temp = temp->next;
 	}
-	//cout << endl;
+	cout << endl;
 }
 
 void LinkedListFunctions::deleteBeg()
@@ -296,8 +301,19 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 			cout << "Savings Account Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
-			temp->savingsBalance = temp->savingsBalance - withdrawAmount;
-			cout << "New Savings Balance: " << temp->savingsBalance;
+			
+			if (withdrawAmount > temp->checkingBalance)
+			{
+				cout << endl;
+				cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+			}
+			else {
+				cout << endl;
+				temp->checkingBalance = temp->checkingBalance - withdrawAmount;
+				cout << "New Savings Balance: " << temp->checkingBalance << endl << endl;
+				system("pause");
+				system("CLS");
+			}
 		}
 		else
 		{
@@ -313,8 +329,18 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 				cout << "Savings Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to withdraw?: ";
 				cin >> withdrawAmount;
-				target->savingsBalance = target->savingsBalance - withdrawAmount;
-				cout << "New Savings Balance: " << target->savingsBalance;
+
+				if (withdrawAmount > target->checkingBalance)
+				{
+					cout << endl;
+					cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+				}
+				else {
+					target->checkingBalance = target->checkingBalance - withdrawAmount;
+					cout << "New Savings Balance: " << target->checkingBalance << endl << endl;
+					system("pause");
+					system("CLS");
+				}
 			}
 		}
 	}
@@ -324,6 +350,7 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 {
 	if (head == NULL)
 	{
+		cout << endl;
 		cout << "The list is empty can not find the checking account with the name: " << fName << " " << lName << endl;
 	}
 	else
@@ -333,11 +360,21 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 		if (fName == head->firstName  && lName == head->lastName) //if the node I am trying to delete is the first node
 		{
 			head = head->next;
-			cout << "Checking Account Name: " << fName << " " << lName << endl;
+			cout << endl;
+			cout << "Checking Account First Name and Last Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
-			temp->checkingBalance = temp->checkingBalance - withdrawAmount;
-			cout << "Checking Balance: " << temp->checkingBalance;
+			
+			if (withdrawAmount > temp->checkingBalance)
+			{
+				cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+			}
+			else {
+				temp->checkingBalance = temp->checkingBalance - withdrawAmount;
+				cout << "New Checking Balance: " << temp->checkingBalance << endl << endl;
+				system("pause");
+				system("CLS");
+			}
 		}
 		else
 		{
@@ -353,8 +390,18 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 				cout << "Checking Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to withdraw?: ";
 				cin >> withdrawAmount;
-				target->checkingBalance = target->checkingBalance - withdrawAmount;
-				cout << "New Checking Balance: " << target->checkingBalance;
+				if (withdrawAmount > target->checkingBalance)
+				{
+					cout << endl;
+					cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+				}
+				else {
+					cout << endl;
+					target->checkingBalance = target->checkingBalance - withdrawAmount;
+					cout << "New Checking Balance: " << target->checkingBalance << endl << endl;
+					system("pause");
+					system("CLS");
+				}
 			}
 		}
 	}
@@ -373,6 +420,7 @@ void LinkedListFunctions::savingsDeposit(string fName, string lName)
 		if (fName == head->firstName  && lName == head->lastName) //if the node I am trying to delete is the first node
 		{
 			head = head->next;
+			cout << endl;
 			cout << "Savings Account Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to Deposit?: ";
 			cin >> depositAmount;
@@ -390,6 +438,7 @@ void LinkedListFunctions::savingsDeposit(string fName, string lName)
 			{
 				temp->next = target->next;
 				//temp = temp->next;
+				cout << endl;
 				cout << "Savings Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to Deposit?: ";
 				cin >> depositAmount;
@@ -413,6 +462,7 @@ void LinkedListFunctions::checkingDeposit(string fName, string lName)
 		if (fName == head->firstName  && lName == head->lastName) //if the node I am trying to delete is the first node
 		{
 			head = head->next;
+			cout << endl;
 			cout << "Checking Account Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to deposit?: ";
 			cin >> depositAmount;
@@ -430,7 +480,8 @@ void LinkedListFunctions::checkingDeposit(string fName, string lName)
 			{
 				temp->next = target->next;
 				//temp = temp->next;
-				cout << "Checking Account Name: " << fName << " " << lName << endl;
+				cout << endl;
+				cout << "Checking Account First and Last Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to deposit?: ";
 				cin >> depositAmount;
 				target->checkingBalance = target->checkingBalance + depositAmount;
