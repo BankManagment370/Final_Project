@@ -1,6 +1,7 @@
 #include "LinkedListFunctions.h"
 #include<iostream>
 #include "Alt.h"
+#include "Bank_Menu.h"
 using namespace std;
 
 //O(1)
@@ -302,10 +303,10 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
 			
-			if (withdrawAmount > temp->checkingBalance)
+			if (withdrawAmount > temp->checkingBalance || withdrawAmount < 0)
 			{
 				cout << endl;
-				cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+				cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
 			}
 			else {
 				cout << endl;
@@ -330,10 +331,10 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 				cout << "How much would you like to withdraw?: ";
 				cin >> withdrawAmount;
 
-				if (withdrawAmount > target->checkingBalance)
+				if (withdrawAmount > target->checkingBalance || withdrawAmount < 0)
 				{
 					cout << endl;
-					cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+					cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
 				}
 				else {
 					target->checkingBalance = target->checkingBalance - withdrawAmount;
@@ -365,15 +366,15 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
 			
-			if (withdrawAmount > temp->checkingBalance)
+			if (withdrawAmount > temp->checkingBalance || withdrawAmount < 0)
 			{
-				cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+				cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
 			}
 			else {
 				temp->checkingBalance = temp->checkingBalance - withdrawAmount;
 				cout << "New Checking Balance: " << temp->checkingBalance << endl << endl;
 				system("pause");
-				system("CLS");
+				//system("CLS");
 			}
 		}
 		else
@@ -390,17 +391,17 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 				cout << "Checking Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to withdraw?: ";
 				cin >> withdrawAmount;
-				if (withdrawAmount > target->checkingBalance)
+				if (withdrawAmount > target->checkingBalance || withdrawAmount < 0)
 				{
 					cout << endl;
-					cout << "ERROR: Cannot withdraw more than the current balance, returned to main menu" << endl;
+					cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
 				}
 				else {
 					cout << endl;
 					target->checkingBalance = target->checkingBalance - withdrawAmount;
 					cout << "New Checking Balance: " << target->checkingBalance << endl << endl;
 					system("pause");
-					system("CLS");
+					//system("CLS");
 				}
 			}
 		}
@@ -424,8 +425,14 @@ void LinkedListFunctions::savingsDeposit(string fName, string lName)
 			cout << "Savings Account Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to Deposit?: ";
 			cin >> depositAmount;
-			temp->savingsBalance = temp->savingsBalance + depositAmount;
-			cout << "New Savings Balance: " << temp->savingsBalance;
+			if (depositAmount >= 0)
+			{
+				temp->savingsBalance = temp->savingsBalance + depositAmount;
+				cout << "New Savings Balance: " << temp->savingsBalance;
+			}
+			else {
+				cout << "ERROR: Invalid number. Returned to main menu" << endl;
+			}
 		}
 		else
 		{
@@ -442,8 +449,14 @@ void LinkedListFunctions::savingsDeposit(string fName, string lName)
 				cout << "Savings Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to Deposit?: ";
 				cin >> depositAmount;
-				target->savingsBalance = target->savingsBalance + depositAmount;
-				cout << "New Savings Balance: " << target->savingsBalance;
+				if (depositAmount >= 0)
+				{
+					target->savingsBalance = target->savingsBalance + depositAmount;
+					cout << "New Savings Balance: " << target->savingsBalance;
+				}
+				else {
+					cout << "ERROR: Invalid number. Returned to main menu" << endl;
+				}
 			}
 		}
 	}
@@ -484,8 +497,14 @@ void LinkedListFunctions::checkingDeposit(string fName, string lName)
 				cout << "Checking Account First and Last Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to deposit?: ";
 				cin >> depositAmount;
-				target->checkingBalance = target->checkingBalance + depositAmount;
-				cout << "New Checking Balance: " << target->checkingBalance;
+				if (depositAmount >= 0)
+				{
+					target->checkingBalance = target->checkingBalance + depositAmount;
+					cout << "New Checking Balance: " << target->checkingBalance;
+				}
+				else {
+					cout << "ERROR: Invalid number. Returned to main menu" << endl;
+				}
 			}
 		}
 	}
