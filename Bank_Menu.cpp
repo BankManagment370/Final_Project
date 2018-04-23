@@ -296,14 +296,14 @@ void deposit()
 			cin >> accountType;
 
 			cout << "Account Type: " << accountType << endl;
-			if (accountType == 'c' || 'C')
+			if (accountType == 'c' || accountType == 'C')
 			{
 				cout << "Enter the name under the Checking Account: " << endl;
 				cout << "First Name: "; cin >> depositCheckingFirstName;
 				cout << "Last Name: "; cin >> depositCheckingLastName;
 				myFunctions.checkingDeposit(depositCheckingFirstName, depositCheckingLastName);
 			}
-			else if (accountType == 's' || 'S')
+			else if (accountType == 's' || accountType == 'S')
 			{
 				cout << "Enter the name under the Savings Account: " << endl;
 				cin >> depositSavingsFirstName >> depositSavingsLastName;
