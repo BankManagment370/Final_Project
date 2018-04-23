@@ -76,14 +76,11 @@ void bankSkeleton::depositChecking(double d)
 
 void bankSkeleton::readDataFromFile()
 {
-	string fileName;
+	string fileName = "data.csv";
 	string line = "";
 	ifstream myFile;
 	stringstream ss;
 	int count = 1, rows = 0, numbOfTimes = 0;
-
-	cout << "Enter a file to read from: " << endl;
-	cin >> fileName;
 
 	myFile.open(fileName);
 
