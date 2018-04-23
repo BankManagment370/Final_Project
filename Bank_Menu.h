@@ -13,6 +13,6 @@ void withdraw();
 void deposit();
 void showDatabase();
 void mainMenu();
-//int validate(string input, string checkType);
 void userInput();
+int validate(string input, string checkType);
 #endif
