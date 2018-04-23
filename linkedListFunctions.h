@@ -12,7 +12,7 @@ public:
 	void insertEnd(string fName, string lName, double savingsBal, double checkingBal);
 	void insertNode(int pos, string fName, string lName, double savingsBal, double checkingBal);
 	int findAccount(string fName, string lName);
-	void deleteNode(string fName, string lName, double savingsBal, double checkingBal);
+	void deleteNode(string fName, string lName);
 	void deleteAtPosition(int pos);
 	int getLength() const;
 	void displayList(void);
