@@ -303,7 +303,7 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 			cout << "Savings Account Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
-			
+
 			if (withdrawAmount > temp->savingsBalance || withdrawAmount < 0)
 			{
 				cout << endl;
@@ -366,7 +366,7 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 			cout << "Checking Account First Name and Last Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
-			
+
 			if (withdrawAmount > temp->checkingBalance || withdrawAmount < 0)
 			{
 				cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
