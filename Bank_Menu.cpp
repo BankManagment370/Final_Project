@@ -445,10 +445,27 @@ void addOrDelete()
 		gotoxy(64, 29);
 		cin >> choice;
 		string fname, lname;
+		double savingsBal, checkingBal;
 
 		switch (choice)
 		{
 		case '1':
+			cout << "First Name: "; cin >> fname;
+			invalidChractersFN = validate(findAccFirstName, "isalpha");
+			cout << "Last Name: "; cin >> lname;
+			invalidChractersLN = validate(findAccLastName, "isalpha");
+			cout << "Savings Balance: "; cin >> savingsBal;
+			cout << "Checking Balance: "; cin >> checkingBal;
+
+			if (invalidChractersFN > 0 || invalidChractersLN > 0)
+			{
+				cout << "ERROR: Too many errors in entry. Returned to main menu." << endl;
+				system("pause");
+				break;
+			}
+			else {
+				myFunctions.add(fname, lname, savingsBal, checkingBal);			}
+				cout << "Item added!" << endl;
 			break;
 
 		case '2':
@@ -462,8 +479,7 @@ void addOrDelete()
 
 			break;
 		case 'x':
-			gotoxy(50, 30);
-			cout << "Choice x selected" << endl;
+
 			return;
 			//break;
 
@@ -503,7 +519,7 @@ void mainMenu()
 		gotoxy(50, 14);
 		cout << " 4. See Accounts\n";
 		gotoxy(50, 15);
-		cout << " 5. User Input\n";
+		cout << " 5. Add or Delete an account\n";
 		gotoxy(50, 16);
 		cout << " 6. Exit\n";
 		gotoxy(50, 17);
