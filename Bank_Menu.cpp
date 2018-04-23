@@ -150,7 +150,7 @@ void withdraw()
 			cin >> accountType;
 
 			cout << "Account Type: " << accountType << endl;
-			if (accountType == 'c')
+			if (accountType == 'c' || 'C')
 			{
 				cout << "Enter the name under the Checking Account " << endl;
 				cout << "First Name: ";
@@ -172,7 +172,7 @@ void withdraw()
 				cout << endl;
 				myFunctions.checkingWithdraw(withdrawCheckingFirstName, withdrawCheckingLastName);
 			}
-			else if(accountType == 's')
+			else if(accountType == 's' || 'S')
 			{
 				cout << "Enter the name under the Savings Account: " << endl;
 				cout << "First Name: ";
@@ -198,7 +198,6 @@ void withdraw()
 
 		case '2':
 			system("CLS");
-			gotoxy(50, 31);		
 			cout << "Enter the name under the account you are searching for: " << endl;
 			cout << "First Name: "; cin >> findAccFirstName;
 			invalidChractersFN = validate(findAccFirstName, "isalpha");
@@ -292,31 +291,27 @@ void deposit()
 		{
 		case '1':
 			gotoxy(50, 30);
-			cout << "Choice 1 selected" << endl;
-
 			myFunctions.displayList();
 			cout << "Which account would you like to deposit to, Checking(c) or Savings(s)?: ";
 			cin >> accountType;
 
 			cout << "Account Type: " << accountType << endl;
-			if (accountType == 'c')
+			if (accountType == 'c' || 'C')
 			{
-				cout << "Enter the name under the Checking Account: ";
-				cin >> depositCheckingFirstName >> depositCheckingLastName;
+				cout << "Enter the name under the Checking Account: " << endl;
+				cout << "First Name: "; cin >> depositCheckingFirstName;
+				cout << "Last Name: "; cin >> depositCheckingLastName;
 				myFunctions.checkingDeposit(depositCheckingFirstName, depositCheckingLastName);
 			}
-			else if (accountType == 's')
+			else if (accountType == 's' || 'S')
 			{
-				cout << "Enter the name under the Savings Account: ";
+				cout << "Enter the name under the Savings Account: " << endl;
 				cin >> depositSavingsFirstName >> depositSavingsLastName;
 				myFunctions.savingsDeposit(depositSavingsFirstName, depositSavingsLastName);
 			}
 			break;
 
 		case '2':
-			gotoxy(50, 30);
-			cout << "Choice 2 selected" << endl;
-
 			myFunctions.displayList();
 			break;
 
@@ -384,7 +379,6 @@ void showDatabase()
 		{
 		case '1':
 			gotoxy(50, 30);
-			cout << "Choice 1 selected" << endl;
 			myFunctions.displayList();
 			break;
 
@@ -407,7 +401,7 @@ void showDatabase()
 
 
 
-void userInput()
+void addOrDelete()
 {
 	system("Color 2B");
 	system("CLS");
@@ -420,7 +414,7 @@ void userInput()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                       User Input                            *" << endl;
+	cout << "*                      Add or Delete an Account               *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -430,9 +424,59 @@ void userInput()
 	gotoxy(50, 17);
 	cout << "***************************************************************" << endl;
 	gotoxy(50, 18);
-	system("PAUSE");
-	system("cls");
 
+	char choice = 'a';
+	while (choice != 'x' || 'X')
+	{
+		gotoxy(50, 23);
+		cout << "MENU OPTIONS: \n";
+		gotoxy(50, 24);
+		cout << "1. Add an account \n";
+		gotoxy(50, 25);
+		cout << "2. Delete an account \n";
+		gotoxy(50, 26);
+		cout << "x. Exit \n";
+
+
+
+		gotoxy(50, 29);
+		cout << "Enter choice: ";
+
+		gotoxy(64, 29);
+		cin >> choice;
+		string fname, lname;
+
+		switch (choice)
+		{
+		case '1':
+			break;
+
+		case '2':
+			myFunctions.displayList();
+
+			cout << "First Name: "; cin >> fname;
+			invalidChractersFN = validate(findAccFirstName, "isalpha");
+			cout << "Last Name: "; cin >> lname;
+			invalidChractersLN = validate(findAccLastName, "isalpha");
+			myFunctions.deleteNode(fname, lname);
+
+			break;
+		case 'x':
+			gotoxy(50, 30);
+			cout << "Choice x selected" << endl;
+			return;
+			//break;
+
+		default:
+			gotoxy(50, 34);
+			cout << "ERROR: Please enter a valid choice" << endl << endl;
+			break;
+		}
+
+		system("PAUSE");
+		system("cls");
+	
+	}
 }
 
 
@@ -487,7 +531,7 @@ void mainMenu()
 			break;
 
 		case '5':
-			userInput();
+			addOrDelete();
 			break;
 
 		case '6':
