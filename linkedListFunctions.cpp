@@ -189,11 +189,11 @@ int LinkedListFunctions::findAccount(string fName, string lName) {
 }
 
 //O(n)
-void LinkedListFunctions::deleteNode(string fName, string lName, double savingsBal, double checkingBal)
+void LinkedListFunctions::deleteNode(string fName, string lName)
 {
 	if (head == NULL)
 	{
-		cout << "The list is empty can not delete the item: " << fName << " " << lName << " " << savingsBal << " " << checkingBal << endl;
+		cout << "The list is empty can not delete the item: " << fName << " " << lName << endl;
 	}
 	else
 	{
@@ -215,6 +215,7 @@ void LinkedListFunctions::deleteNode(string fName, string lName, double savingsB
 			{
 				temp->next = target->next;
 				delete target;
+				cout << "Item succesfully deleted!" << endl;
 				length--;
 			}
 		}
