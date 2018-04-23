@@ -2,6 +2,9 @@
 #include<iostream>
 #include "Alt.h"
 #include "Bank_Menu.h"
+#include <fstream>
+#include <sstream>
+
 using namespace std;
 
 //O(1)
@@ -303,7 +306,7 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 			cout << "Savings Account Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
-
+			
 			if (withdrawAmount > temp->savingsBalance || withdrawAmount < 0)
 			{
 				cout << endl;
@@ -366,7 +369,7 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 			cout << "Checking Account First Name and Last Name: " << fName << " " << lName << endl;
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
-
+			
 			if (withdrawAmount > temp->checkingBalance || withdrawAmount < 0)
 			{
 				cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
@@ -511,3 +514,49 @@ void LinkedListFunctions::checkingDeposit(string fName, string lName)
 	}
 }
 
+void LinkedListFunctions::readDataFromFile()
+{
+	string fileName = "data.csv";
+	string line = "";
+	ifstream myFile;
+	stringstream ss;
+	int count = 1, rows = 0, numbOfTimes = 0;
+
+	myFile.open(fileName);
+
+	while (!myFile.eof())
+	{
+		getline(myFile, line, ',');
+		ss << line << ':';
+	}
+	myFile.seekg(0);
+
+	//Get number of rows in file
+
+	string fName = "";
+	string lName = "";
+	string savingBal = "";
+	string checkingBal = "";
+
+	while (!ss.eof())
+	{
+		getline(ss, fName, ':');
+		getline(ss, lName, ':');
+		getline(ss, savingBal, ':');
+		getline(ss, checkingBal, '\n');
+
+
+		cout << endl;
+
+		if (count == 1)
+		{
+			add(fName, lName, stod(savingBal), stod(checkingBal));
+			count++;
+		}
+		else if (count >= 2) {
+			add(fName, lName, stod(savingBal), stod(checkingBal));
+		}
+		count++;
+	}
+
+}
