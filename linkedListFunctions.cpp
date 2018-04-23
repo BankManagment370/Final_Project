@@ -303,17 +303,17 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 			cout << "How much would you like to withdraw?: ";
 			cin >> withdrawAmount;
 			
-			if (withdrawAmount > temp->checkingBalance || withdrawAmount < 0)
+			if (withdrawAmount > temp->savingsBalance || withdrawAmount < 0)
 			{
 				cout << endl;
 				cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
 			}
 			else {
 				cout << endl;
-				temp->checkingBalance = temp->checkingBalance - withdrawAmount;
-				cout << "New Savings Balance: " << temp->checkingBalance << endl << endl;
+				temp->savingsBalance = temp->savingsBalance - withdrawAmount;
+				cout << "New Savings Balance: " << temp->savingsBalance << endl << endl;
 				system("pause");
-				system("CLS");
+				//system("CLS");
 			}
 		}
 		else
@@ -325,20 +325,20 @@ void LinkedListFunctions::savingsWithdraw(string fName, string lName)
 			Node * target = temp->next;
 			if (target != NULL)
 			{
-				temp->next = target->next;
+				target = temp->next;
 				//temp = temp->next;
 				cout << "Savings Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to withdraw?: ";
 				cin >> withdrawAmount;
 
-				if (withdrawAmount > target->checkingBalance || withdrawAmount < 0)
+				if (withdrawAmount > target->savingsBalance || withdrawAmount < 0)
 				{
 					cout << endl;
 					cout << "ERROR: Invalid number attempt. Returned to main menu" << endl;
 				}
 				else {
-					target->checkingBalance = target->checkingBalance - withdrawAmount;
-					cout << "New Savings Balance: " << target->checkingBalance << endl << endl;
+					target->savingsBalance = target->savingsBalance - withdrawAmount;
+					cout << "New Savings Balance: " << target->savingsBalance << endl << endl;
 					system("pause");
 					system("CLS");
 				}
@@ -386,7 +386,7 @@ void LinkedListFunctions::checkingWithdraw(string fName, string lName)
 			Node * target = temp->next;
 			if (target != NULL)
 			{
-				temp->next = target->next;
+				target = temp->next;
 				//temp = temp->next;
 				cout << "Checking Account Name: " << fName << " " << lName << endl;
 				cout << "How much would you like to withdraw?: ";
@@ -443,7 +443,7 @@ void LinkedListFunctions::savingsDeposit(string fName, string lName)
 			Node * target = temp->next;
 			if (target != NULL)
 			{
-				temp->next = target->next;
+				target = temp->next;
 				//temp = temp->next;
 				cout << endl;
 				cout << "Savings Account Name: " << fName << " " << lName << endl;
@@ -491,7 +491,7 @@ void LinkedListFunctions::checkingDeposit(string fName, string lName)
 			Node * target = temp->next;
 			if (target != NULL)
 			{
-				temp->next = target->next;
+				target = temp->next;
 				//temp = temp->next;
 				cout << endl;
 				cout << "Checking Account First and Last Name: " << fName << " " << lName << endl;
