@@ -12,6 +12,9 @@ using namespace std;
 bankSkeleton myBank;
 LinkedListFunctions myFunctions;
 
+int invalidChractersFN = 0, invalidChractersLN = 0, invalidChractersID = 0;
+
+
 string withdrawCheckingFirstName, withdrawCheckingLastName, withdrawSavingsFirstName, withdrawSavingsLastName;
 string depositCheckingFirstName, depositCheckingLastName, depositSavingsFirstName, depositSavingsLastName;
 string findAccFirstName, findAccLastName;
@@ -149,14 +152,45 @@ void withdraw()
 			cout << "Account Type: " << accountType << endl;
 			if (accountType == 'c')
 			{
-				cout << "Enter the name under the Checking Account: ";
-				cin >> withdrawCheckingFirstName >> withdrawCheckingLastName;
+				cout << "Enter the name under the Checking Account " << endl;
+				cout << "First Name: ";
+				cin >> withdrawCheckingFirstName;
+				invalidChractersFN = validate(withdrawCheckingFirstName, "isalpha");
+				cout << "Last Name: "; cin >> withdrawCheckingLastName;
+				invalidChractersFN = validate(withdrawCheckingLastName, "isalpha");
+
+				if (invalidChractersFN > 0)
+				{
+					cout << "You have " << invalidChractersFN << " invalid characters in first name" << endl;
+				}
+
+				if (invalidChractersLN > 0)
+				{
+					cout << "You have " << invalidChractersLN << " invalid characters in last name" << endl;
+				}
+
+				cout << endl;
 				myFunctions.checkingWithdraw(withdrawCheckingFirstName, withdrawCheckingLastName);
 			}
 			else if(accountType == 's')
 			{
-				cout << "Enter the name under the Savings Account: ";
-				cin >> withdrawSavingsFirstName >> withdrawSavingsLastName;
+				cout << "Enter the name under the Savings Account: " << endl;
+				cout << "First Name: ";
+				cin >> withdrawSavingsFirstName;
+				invalidChractersFN = validate(withdrawSavingsFirstName, "isalpha");
+				cout << "Last Name: "; cin >> withdrawSavingsLastName;
+				invalidChractersLN = validate(withdrawSavingsLastName, "isalpha");
+				cout << endl;
+				if (invalidChractersFN > 0)
+				{
+					cout << "You have " << invalidChractersFN << " invalid characters in first name" << endl;
+				}
+
+				if (invalidChractersLN > 0)
+				{
+					cout << "You have " << invalidChractersLN << " invalid characters in last name" << endl;
+				}
+				cout << endl;
 				myFunctions.savingsWithdraw(withdrawSavingsFirstName, withdrawSavingsLastName);
 			}
 
@@ -164,11 +198,24 @@ void withdraw()
 
 		case '2':
 			system("CLS");
-			gotoxy(50, 31);
-			cout << "Choice 2 selected" << endl;
-		
-			cout << "Enter the name under the account you are searching for: ";
-			cin >> findAccFirstName >> findAccLastName;
+			gotoxy(50, 31);		
+			cout << "Enter the name under the account you are searching for: " << endl;
+			cout << "First Name: "; cin >> findAccFirstName;
+			invalidChractersFN = validate(findAccFirstName, "isalpha");
+			cout << "Last Name: "; cin >> findAccLastName;
+			invalidChractersLN = validate(findAccLastName, "isalpha");
+
+			if (invalidChractersFN > 0)
+			{
+				cout << "You have " << invalidChractersFN << " invalid characters in first name" << endl;
+			}
+
+			if (invalidChractersLN > 0)
+			{
+				cout << "You have " << invalidChractersLN << " invalid characters in last name" << endl;
+			}
+
+			cout << endl;
 			myFunctions.findAccount(findAccFirstName, findAccLastName);
 
 			break;
@@ -183,13 +230,8 @@ void withdraw()
 			cout << "ERROR: Please enter a valid choice" << endl << endl;
 			break;
 		}
-
 	}
-
-
-
 	system("PAUSE");
-
 }
 
 
@@ -391,40 +433,6 @@ void userInput()
 	system("PAUSE");
 	system("cls");
 
-	string firstName, lastName, studentID;
-	int invalidChractersFN = 0, invalidChractersLN = 0, invalidChractersID = 0;;
-
-	int numoccur = 0;
-
-	/*cout << "Please enter your first name: \n";
-	cin >> firstName;
-	invalidChractersFN = validate(firstName, "isalpha");
-	cout << "Please enter our last name: \n";
-	cin >> lastName;
-	invalidChractersLN = validate(lastName, "isalpha");
-	cout << "Please enter your student ID #: \n";
-	cin >> studentID;
-	invalidChractersID = validate(studentID, "isdigit");*/
-
-
-
-	if (invalidChractersFN > 0)
-	{
-		cout << "You have " << invalidChractersFN << " invalid characters in first name" << endl;
-	}
-
-	if (invalidChractersLN > 0)
-	{
-		cout << "You have " << invalidChractersLN << " invalid characters in last name" << endl;
-	}
-
-	if (invalidChractersID > 0)
-	{
-		cout << "You have " << invalidChractersID << " invalid characters in student id" << endl;
-	}
-
-	system("PAUSE");
-
 }
 
 
@@ -492,6 +500,31 @@ void mainMenu()
 		}
 
 	} while (selection != 6);
+}
 
+int validate(string input, string checkType)
+{
+	int numoccur = 0;
+
+	if (checkType == "isalpha")
+	{
+		for (int x = 0; x < input.length(); x++)
+		{
+			if (!isalpha(input[x]))
+				numoccur++;
+		}
+	}
+
+
+	if (checkType == "isdigit")
+	{
+		for (int x = 0; x < input.length(); x++)
+		{
+			if (!isdigit(input[x]))
+				numoccur++;
+		}
+	}
+
+	return numoccur;
 
 }
