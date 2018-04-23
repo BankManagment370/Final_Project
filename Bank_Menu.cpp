@@ -26,11 +26,6 @@ void splashScreen()
 	system("CLS");
 	system("Color 2B");
 
-	myFunctions.add("Chris", "Belyski", 2000.00, 500.00);
-	myFunctions.add("David", "Hartglass", 1500.00, 700.00);
-	myFunctions.add("Brandon", "Livingston", 2500.00, 600.00);
-
-
 	gotoxy(50, 9);
 	cout << "  __                                                                              __                          \n";
 	gotoxy(50, 10);
@@ -144,7 +139,6 @@ void withdraw()
 		case '1':
 			system("CLS");
 			gotoxy(50, 31);
-			//myBank.readDataFromFile();
 			myFunctions.displayList();
 			cout << "Which account would you like to withdraw from, Checking(c) or Savings(s)?: ";
 			cin >> accountType;
@@ -501,6 +495,7 @@ void mainMenu()
 
 
 	char selection;
+	myFunctions.readDataFromFile();
 
 	do
 	{
@@ -575,7 +570,6 @@ int validate(string input, string checkType)
 		}
 	}
 
-
 	if (checkType == "isdigit")
 	{
 		for (int x = 0; x < input.length(); x++)
@@ -586,5 +580,4 @@ int validate(string input, string checkType)
 	}
 
 	return numoccur;
-
 }
