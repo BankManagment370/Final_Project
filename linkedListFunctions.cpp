@@ -203,6 +203,7 @@ void LinkedListFunctions::deleteNode(string fName, string lName)
 			head = head->next;
 			delete temp;
 			length--;
+			cout << "Item deleted " << endl;
 		}
 		else
 		{
@@ -276,7 +277,6 @@ void LinkedListFunctions::add(string fName, string lName, double savingsBal, dou
 	node1->checkingBalance = checkingBal;
 	node1->next = head;
 	head = node1;
-
 
 	length++;
 }
