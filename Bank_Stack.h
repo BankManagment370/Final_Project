@@ -1,3 +1,4 @@
+#include "Node.h"
 #pragma once
 #ifndef BANK_STACK.H
 #define BANK_STACK.H
@@ -15,7 +16,6 @@ public:
 	void displayStack();
 	int findAccount(string fName, string lName);
 	void deleteNode(string fName, string lName);
-	int getLength() const;
 	void add(string fName, string lName, double savingsBal, double checkingBal);
 	void sorting();
 	void savingsWithdraw(string fName, string lName);
@@ -23,6 +23,9 @@ public:
 	void checkingDeposit(string fName, string lName);
 	void savingsDeposit(string fName, string lName);
 	void readDataFromFile();
+	private:
+	int length; // number of elements in the stack
+	Node<Type>*  stackTop;
 
 };
 
