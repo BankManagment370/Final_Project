@@ -26,6 +26,11 @@ public:
 	int size() const;
 	Queue(); //Default constructor
 	~Queue(); //Destructor
+	void savingsWithdraw(string fName, string lName);
+	void checkingWithdraw(string fName, string lName);
+	void checkingDeposit(string fName, string lName);
+	void savingsDeposit(string fName, string lName);
+	int findAccount(string fName, string lName);
 
 private:
 	Node<T> *queueFront; //pointer to the front of the queue
