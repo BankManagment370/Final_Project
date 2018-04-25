@@ -114,3 +114,20 @@ Bank_Queue::~Queue()
 {
 	
 } 
+
+template <class T>
+int Bank_Queue<T>::findAccount(string fName, string lName) {
+	Node* currNode = head;
+	int currIndex = 1;
+	while (currNode && currNode->firstName != fName && currNode->lastName != lName) {
+		currNode = currNode->next;
+		currIndex++;
+	}
+	if (currNode)
+	{
+		cout << "Name under account: " << currNode->firstName << " " << currNode->lastName << endl;
+		cout << "Checking Balance: " << currNode->checkingBalance << endl;
+		cout << "Savings Balance: " << currNode->savingsBalance << endl;
+	}
+	return 0;
+}
