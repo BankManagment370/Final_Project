@@ -24,8 +24,8 @@ public:
 	void enqueue(const T& queueElement);
 	T dequeue();
 	int size() const;
-	Queue(); //Default constructor
-	~Queue(); //Destructor
+	Bank_Queue(); //Default constructor
+	~Bank_Queue(); //Destructor
 	void savingsWithdraw(string fName, string lName);
 	void checkingWithdraw(string fName, string lName);
 	void checkingDeposit(string fName, string lName);
