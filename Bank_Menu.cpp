@@ -165,6 +165,7 @@ void withdraw()
 
 				cout << endl;
 				myFunctions.checkingWithdraw(withdrawCheckingFirstName, withdrawCheckingLastName);
+				myFunctions.save();
 			}
 			else if(accountType == 's' || 'S')
 			{
@@ -186,6 +187,8 @@ void withdraw()
 				}
 				cout << endl;
 				myFunctions.savingsWithdraw(withdrawSavingsFirstName, withdrawSavingsLastName);
+				myFunctions.save();
+
 			}
 
 			break;
@@ -296,12 +299,14 @@ void deposit()
 				cout << "First Name: "; cin >> depositCheckingFirstName;
 				cout << "Last Name: "; cin >> depositCheckingLastName;
 				myFunctions.checkingDeposit(depositCheckingFirstName, depositCheckingLastName);
+				myFunctions.save();
 			}
 			else if (accountType == 's' || accountType == 'S')
 			{
 				cout << "Enter the name under the Savings Account: " << endl;
 				cin >> depositSavingsFirstName >> depositSavingsLastName;
 				myFunctions.savingsDeposit(depositSavingsFirstName, depositSavingsLastName);
+				myFunctions.save();
 			}
 			break;
 
@@ -460,6 +465,7 @@ void addOrDelete()
 			else {
 				myFunctions.add(fname, lname, savingsBal, checkingBal);			}
 				cout << "Item added!" << endl;
+				myFunctions.save();
 			break;
 
 		case '2':
@@ -470,6 +476,7 @@ void addOrDelete()
 			cout << "Last Name: "; cin >> lname;
 			invalidChractersLN = validate(findAccLastName, "isalpha");
 			myFunctions.deleteNode(fname, lname);
+			myFunctions.save();
 
 			break;
 		case 'x':
