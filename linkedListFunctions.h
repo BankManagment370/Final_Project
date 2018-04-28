@@ -25,6 +25,7 @@ public:
 	void checkingDeposit(string fName, string lName);
 	void savingsDeposit(string fName, string lName);
 	void readDataFromFile();
+	void save();
 private:
 	int length;
 	Node* head;
