@@ -560,3 +560,21 @@ void LinkedListFunctions::readDataFromFile()
 	}
 
 }
+
+void LinkedListFunctions::save() {
+	ofstream myfile;
+	myfile.open("data.csv");
+	Node *temp;
+	temp = head;
+	
+	
+	while (temp != NULL)
+	{
+		myfile << temp->firstName << ",";
+		myfile << temp->lastName << ",";		
+		myfile << temp->savingsBalance << ",";
+		myfile << temp->checkingBalance << ",";
+		temp = temp->next;
+	}
+	myfile.close();
+}
