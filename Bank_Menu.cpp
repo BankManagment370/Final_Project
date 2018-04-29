@@ -58,7 +58,7 @@ void getAccount()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                        Get Account                          *" << endl;
+	cout << "*                        Find Account                         *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -72,8 +72,12 @@ void getAccount()
 	gotoxy(50, 20);
 	cout << endl;
 	gotoxy(50, 22);
-	cout << "Enter the name under the account you are searching for: ";
-	cin >> findAccFirstName >> findAccLastName;
+	cout << "Enter the name under the account you are searching for";
+	cout << endl;
+	cout << "First Name: ";
+	cin >> findAccFirstName;
+	cout << "Last Name: "; 
+	cin >> findAccLastName;
 	myFunctions.findAccount(findAccFirstName, findAccLastName);
 	system("PAUSE");
 
@@ -93,7 +97,7 @@ void withdraw()
 	gotoxy(50, 12);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 13);
-	cout << "*                      Withdraw Screen                        *" << endl;
+	cout << "*                      Make a Withdrawal                      *" << endl;
 	gotoxy(50, 14);
 	cout << "*                                                             *" << endl;
 	gotoxy(50, 15);
@@ -144,7 +148,7 @@ void withdraw()
 			cin >> accountType;
 
 			cout << "Account Type: " << accountType << endl;
-			if (accountType == 'c' || 'C')
+			if (accountType == 'c' || accountType == 'C')
 			{
 				cout << "Enter the name under the Checking Account " << endl;
 				cout << "First Name: ";
@@ -167,7 +171,7 @@ void withdraw()
 				myFunctions.checkingWithdraw(withdrawCheckingFirstName, withdrawCheckingLastName);
 				myFunctions.save();
 			}
-			else if(accountType == 's' || 'S')
+			else if(accountType == 's' || accountType == 'S')
 			{
 				cout << "Enter the name under the Savings Account: " << endl;
 				cout << "First Name: ";
