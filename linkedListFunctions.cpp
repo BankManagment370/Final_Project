@@ -547,16 +547,14 @@ void LinkedListFunctions::readDataFromFile()
 
 
 		cout << endl;
-
-		if (count == 1)
+		if (fName != "" || lName != "")
 		{
 			add(fName, lName, stod(savingBal), stod(checkingBal));
 			count++;
 		}
-		else if (count >= 2) {
-			add(fName, lName, stod(savingBal), stod(checkingBal));
+		else {
+
 		}
-		count++;
 	}
 
 }
@@ -574,6 +572,7 @@ void LinkedListFunctions::save() {
 		myfile << temp->lastName << ",";		
 		myfile << temp->savingsBalance << ",";
 		myfile << temp->checkingBalance << ",";
+		myfile << endl;
 		temp = temp->next;
 	}
 	myfile.close();
